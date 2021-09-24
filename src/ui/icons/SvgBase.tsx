@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components'
-import { Colors } from '../theme'
-import { Size } from '../base/form/Button'
+
+import { Size } from 'ui/base/form'
+import { Colors } from 'ui/theme'
 
 export type SvgProps = {
   viewBox?: string

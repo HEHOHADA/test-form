@@ -79,7 +79,9 @@ export const DropdownBase = (props: DropdownBaseProps) => {
 
           return (
             <Container {...getRootProps({ refKey: 'ref' })}>
-              <ToggleButton {...getToggleButtonProps(toggleButtonBaseProps)}>
+              <ToggleButton
+                role='button'
+                {...getToggleButtonProps(toggleButtonBaseProps)}>
                 <>
                   <Title>{title}</Title>
                   <ToggleArrowIcon fill='greyLight' />
