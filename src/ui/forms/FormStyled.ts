@@ -3,12 +3,13 @@ import styled from 'styled-components'
 import { Button } from 'ui/base/form/Button'
 import { themeColor, themeFontSize } from '../theme'
 import { FieldControl } from '../base/form/FieldControl'
+import { boxShadow } from '../base/form/Button/ButtonStyled'
 
 export const FormikForm = styled(Form)`
   display: flex;
   flex-direction: column;
   border-radius: 24px;
-  box-shadow: 0 12px 24px rgba(44, 39, 56, 0.02), 0 32px 64px rgba(44, 39, 56, 0.04);
+  box-shadow: ${boxShadow(12, 0.02)}, ${boxShadow(32, 0.04)};
   min-width: 360px;
   max-width: 500px;
   background: ${themeColor('white')};

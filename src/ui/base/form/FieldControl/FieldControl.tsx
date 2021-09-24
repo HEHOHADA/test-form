@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import { FieldAttributes, useField } from 'formik'
 
-import { TextField, TextFieldProps } from '../TextField/TextField'
+import { TextField, TextFieldProps } from 'ui/base/form/TextField'
 
 export type FieldControlProps = FieldAttributes<TextFieldProps>
 

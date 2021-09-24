@@ -1,9 +1,8 @@
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
+import { boxShadow } from '../Button/ButtonStyled'
 
-export const Input = styled.input(() => {
-  return css`
-    border-radius: 6px;
-    padding: 16px;
-    box-shadow: 0 4px 8px rgba(44, 39, 56, 0.04);
-  `
-})
+export const Input = styled.input`
+  border-radius: 6px;
+  padding: 16px;
+  box-shadow: ${boxShadow(4, 0.04)};
+`

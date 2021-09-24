@@ -4,6 +4,7 @@ import { ArrowBaseIcon } from 'ui/icons/ArrowBaseIcon'
 import { themeColor, themeFontSize } from 'ui/theme'
 import { Button } from 'ui/base/form/Button'
 import { Item } from './DropdownBase'
+import { boxShadow } from '../../base/form/Button/ButtonStyled'
 
 export const Container = styled.div`
   position: relative;
@@ -44,12 +45,9 @@ export const MenuItem = styled.li<MenuItemProps>`
 
 export const Menu = styled.ul<{ menuWidth: number }>`
   position: absolute;
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
   background: ${themeColor('white')};
   border: 1px solid ${themeColor('grey')};
-  box-shadow: 0 4px 8px rgba(44, 39, 56, 0.04), 0 20px 20px rgba(44, 39, 56, 0.04);
+  box-shadow: ${boxShadow(4, 0.04)}, ${boxShadow(20, 0.04)};
   z-index: 4;
   left: 14px;
   top: calc(100% + 5px);

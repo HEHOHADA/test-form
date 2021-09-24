@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { themeColor, themeFontSize } from 'ui/theme'
+import { boxShadow } from '../Button/ButtonStyled'
 
 export const LabelStyled = styled.label`
   position: relative;
@@ -52,7 +53,7 @@ export const InputStyled = styled.input`
   &:active {
     & ~ ${CheckMarkStyled} {
       border: 2px solid ${themeColor('main')};
-      box-shadow: 0 4px 8px rgba(44, 39, 56, 0, 04);
+      box-shadow: ${boxShadow(4, 0.04)};
     }
   }
 `

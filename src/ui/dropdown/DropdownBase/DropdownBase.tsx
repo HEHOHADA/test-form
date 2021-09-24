@@ -1,12 +1,6 @@
 import { ReactElement, useRef, useState } from 'react'
 import { AnyStyledComponent } from 'styled-components'
-import Downshift, {
-  ControllerStateAndHelpers,
-  DownshiftProps,
-  DownshiftState,
-  GetItemPropsOptions,
-  GetToggleButtonPropsOptions,
-} from 'downshift'
+import Downshift, { DownshiftProps, GetToggleButtonPropsOptions } from 'downshift'
 
 import { OutsideClickWatcher } from 'ui/helpers/OutsideClickWatcher'
 import {
@@ -22,14 +16,6 @@ export type Item = {
   value: string
   content?: ReactElement | string
   selected?: boolean
-}
-
-export type DropdownMainState = DownshiftState<Item> & { selectedItems: Item[] }
-
-export type ItemProps = Omit<GetItemPropsOptions<Item>, 'ref' | 'as'> & {
-  index: number
-  selectable: boolean
-  highlighted: boolean
 }
 
 export type DropdownBaseProps = Omit<DownshiftProps<Item>, 'children'> & {
@@ -53,12 +39,11 @@ export const DropdownBase = (props: DropdownBaseProps) => {
     ...restProps
   } = props
   const [open, setOpen] = useState(false)
-  const toggleButton = useRef<HTMLButtonElement>(null)
-  const recentDownshiftSet = useRef<ControllerStateAndHelpers<Item>>()
+  const toggleButtonRef = useRef<HTMLButtonElement>(null)
 
   const handleOutsideClick = () => {
     setOpen(false)
-    toggleButton.current?.blur()
+    toggleButtonRef.current?.blur()
   }
 
   return (
@@ -71,12 +56,11 @@ export const DropdownBase = (props: DropdownBaseProps) => {
         id={id}
         isOpen={open}
         onSelect={(selectedItem, downshiftSet) => {
-          recentDownshiftSet.current = downshiftSet
           onSelect?.(selectedItem, downshiftSet)
         }}
-        itemToString={(item) => {
-          return (typeof item?.content === 'string' ? item?.content : item?.value) || ''
-        }}>
+        itemToString={(item) =>
+          (typeof item?.content === 'string' ? item?.content : item?.value) || ''
+        }>
         {(downshiftSet) => {
           const {
             isOpen,
@@ -88,7 +72,7 @@ export const DropdownBase = (props: DropdownBaseProps) => {
             highlightedIndex,
           } = downshiftSet
           const toggleButtonBaseProps: GetToggleButtonPropsOptions = {
-            ref: toggleButton,
+            ref: toggleButtonRef,
             open: isOpen,
             onClick: () => setOpen((opened) => !opened),
           }

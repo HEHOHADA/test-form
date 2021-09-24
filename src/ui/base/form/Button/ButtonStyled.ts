@@ -7,6 +7,8 @@ export const ButtonContentWrapper = styled.span`
   align-items: center;
   overflow: hidden;
 `
+export const boxShadow = (shadow: number, alpha = 0.08) =>
+  css`0 ${shadow}px ${shadow * 2}px rgba(44, 39, 56, ${alpha})`
 
 export const ButtonStyled = styled.button((props: ButtonProps & WithTheme) => {
   const {
@@ -23,11 +25,11 @@ export const ButtonStyled = styled.button((props: ButtonProps & WithTheme) => {
   const activeBorderColor = theme.colors.dark
 
   const hoverStyles = css`
-    box-shadow: 0 12px 24px rgba(44, 39, 56, 0.08), 0 24px 48px rgba(44, 39, 56, 0.16);
+    box-shadow: ${boxShadow(12)}, ${boxShadow(24, 0.16)};
   `
 
   return css`
-    box-shadow: 0 2px 4px rgba(44, 39, 56, 0.08), 0 4px 8px rgba(44, 39, 56, 0.08);
+    box-shadow: ${boxShadow(2)}, ${boxShadow(12)};
     border-radius: 6px;
     overflow: hidden;
     border: none;
@@ -59,7 +61,7 @@ export const ButtonStyled = styled.button((props: ButtonProps & WithTheme) => {
 
     &:hover:active {
       border: 1px solid ${activeBorderColor};
-      box-shadow: 0 4px 8px rgba(44, 39, 56, 0, 08);
+      box-shadow: ${boxShadow(4)};
     }
   `
 })
