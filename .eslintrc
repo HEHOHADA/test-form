@@ -1,0 +1,149 @@
+{
+  "extends": [
+    "prettier",
+    "airbnb",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 12,
+    "sourceType": "module"
+  },
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "node": true
+  },
+  "plugins": [
+    "@typescript-eslint",
+    "react",
+    "prettier"
+  ],
+  "rules": {
+    "prettier/prettier": "warn",
+    "linebreak-style": "off",
+    "arrow-body-style": "off",
+    "react/jsx-wrap-multilines": "off",
+    "no-multiple-empty-lines": "off",
+    "react/jsx-curly-brace-presence": "off",
+    "no-confusing-arrow": "off",
+    "template-curly-spacing": "off",
+    "import/extensions": "off",
+    "eact/self-closing-comp": "off",
+    "import/prefer-default-export": "off",
+    "react/jsx-indent-props": "off",
+    "no-console": "off",
+    "react/jsx-props-no-spreading": "off",
+    "object-curly-newline": "off",
+    "react/jsx-curly-spacing": "off",
+    "react/jsx-closing-bracket-location": "off",
+    "react/jsx-key": "off",
+    "react/prop-types": "off",
+    "implicit-arrow-linebreak": "off",
+    "jsx-quotes": "off",
+    "operator-linebreak": "off",
+    "indent": "off",
+    "react/react-in-jsx-scope": "off",
+    "react/destructuring-assignment": "off",
+    "no-nested-ternary": "off",
+    "react/jsx-filename-extension": "off",
+    "no-use-before-define": "off",
+    "react/no-direct-mutation-state": [
+      "error",
+      "always"
+    ],
+    "semi": [
+      "warn",
+      "never"
+    ],
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/no-empty-interface": "off",
+    "@typescript-eslint/no-unused-vars": [
+      "warn",
+      {
+        "vars": "all",
+        "args": "after-used",
+        "ignoreRestSiblings": true,
+        "argsIgnorePattern": "^_"
+      }
+    ],
+    "@typescript-eslint/naming-convention": [
+      "error",
+      {
+        "selector": "interface",
+        "format": [
+          "PascalCase"
+        ],
+        "custom": {
+          "regex": "^[A-Z]",
+          "match": true
+        }
+      }
+    ],
+    "padding-line-between-statements": [
+      "warn",
+      {
+        "blankLine": "always",
+        "prev": "*",
+        "next": "return"
+      },
+      {
+        "blankLine": "always",
+        "prev": [
+          "const",
+          "let"
+        ],
+        "next": "*"
+      },
+      {
+        "blankLine": "any",
+        "prev": [
+          "const",
+          "let"
+        ],
+        "next": [
+          "const",
+          "let"
+        ]
+      },
+      {
+        "blankLine": "always",
+        "prev": "directive",
+        "next": "*"
+      },
+      {
+        "blankLine": "any",
+        "prev": "directive",
+        "next": "directive"
+      },
+      {
+        "blankLine": "always",
+        "prev": [
+          "case",
+          "default"
+        ],
+        "next": "*"
+      }
+    ]
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [
+          ".js",
+          ".jsx",
+          ".ts",
+          ".tsx"
+        ],
+        "moduleDirectory": [
+          "node_modules",
+          "src/"
+        ]
+      }
+    }
+  }
+}
